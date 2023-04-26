@@ -18,7 +18,7 @@ const FormLogIn : React.FC<Props> = ({userVerifing}) => {
   return (
     <div className={styles['login-account']}>
     <ToastContainer/>
-    <h2>Faça seu Login</h2>
+    <h2>Faça o seu Login</h2>
     <form className={styles['form']}>
         <label className={styles['label']}>
             Email:
