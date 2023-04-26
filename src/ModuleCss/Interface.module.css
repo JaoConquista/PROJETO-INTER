@@ -13,26 +13,39 @@ html, body {
     'A C';
 
     height: 99.5vh;
-    border: 1px solid #000;
   }
   
-  #interface {
-    background-color: red;
+  #side-bar {
+    background-color: #4b4646;
     grid-area: A;
     width: 20vw;
+    color: #fff;
+    font-weight: bolder;
     
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
   }
   
   #result {
-    background-color: blue;
+    background-color: #ccc;
     grid-area: B;
     width: 79.5vw;
     height: 2em;
   }
+  #result input {
+    margin-left: 1em;
+    width: 80%;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+
+  }
   
-  #side-bar {
+  #interface {
     /*defina a largura que desejar*/
-    background-color: #ccc;
+    background-color: #fff;
     grid-area: C;
     height: 93.5vh;
   }

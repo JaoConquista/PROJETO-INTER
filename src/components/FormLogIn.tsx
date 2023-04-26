@@ -5,12 +5,10 @@ import 'react-toastify/dist/ReactToastify.css'
 //CSS
 import styles from '../ModuleCss/Form.module.css'
 
-interface Props {
-  userVerifing : (value: boolean) => void
-}
+import {Link} from 'react-router-dom'
 
 
-const FormLogIn : React.FC<Props> = ({userVerifing}) => {
+const FormLogIn = () => {
   //Mensagens de erro ou sucesso
   const errorNotify = () => toast.error("Login não encontrado")
   const succeedNotify = () => toast.success("Login não encontrado")
@@ -18,7 +16,7 @@ const FormLogIn : React.FC<Props> = ({userVerifing}) => {
   return (
     <div className={styles['login-account']}>
     <ToastContainer/>
-    <h2>Faça o seu Login</h2>
+    <h2>Faça seu Login</h2>
     <form className={styles['form']}>
         <label className={styles['label']}>
             Email:
@@ -30,7 +28,7 @@ const FormLogIn : React.FC<Props> = ({userVerifing}) => {
         </label>
         <button type='submit'>Entrar</button>
     </form>
-    <p>Não possui uma conta ? <button onClick={() => userVerifing(false)}>Criar conta</button></p>
+    <p>Não possui uma conta ? <Link to='/'>crie aqui !</Link></p>
     </div>
   )
 }
