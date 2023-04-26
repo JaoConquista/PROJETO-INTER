@@ -1,0 +1,39 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    
+  }
+  
+  .main {
+
+    display: grid;
+    grid-template-columns: max-content max-content;
+    grid-template-areas: 
+    'A B'
+    'A C';
+
+    height: 99.5vh;
+    border: 1px solid #000;
+  }
+  
+  #interface {
+    background-color: red;
+    grid-area: A;
+    width: 20vw;
+    
+  }
+  
+  #result {
+    background-color: blue;
+    grid-area: B;
+    width: 79.5vw;
+    height: 2em;
+  }
+  
+  #side-bar {
+    /*defina a largura que desejar*/
+    background-color: #ccc;
+    grid-area: C;
+    height: 93.5vh;
+  }
+  

@@ -1,0 +1,39 @@
+.create-account , .login-account{
+    height: 100vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+form{
+    border: 1px solid #115bda;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 20em;
+    padding: 30px;
+    border-radius: 10px;
+
+}
+
+label{
+    padding: 20px;
+    padding: 10px;
+    font-weight: bolder;
+}
+
+input{
+    border: none;
+    border-bottom: 1px solid #000;
+    padding-left: 10px;
+    font-weight: bold ;
+}
+
+input:focus{
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
