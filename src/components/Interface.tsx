@@ -2,24 +2,34 @@ import React from 'react'
 
 import {Link} from 'react-router-dom'
 
+import { AiOutlineSearch } from "react-icons/ai";
 //CSS
 import styles from '../ModuleCss/Interface.module.css'
+
 
 const Interface = () => {
   return (
     <div className={styles['main']}>
         <div id={styles['side-bar']}>
-          <p>Produtos</p>
-          <p>Produtos</p>
-          <p>Produtos</p>
-          <p>Produtos</p>
+
+          <button className={styles['content-side-bar']}><Link to='/principal'>Início</Link></button>
+          
+          <button className={styles['content-side-bar']}><Link to='/vendas'>Vendas</Link></button>
+          
+          <button className={styles['content-side-bar']}><Link to='/produtos'>Produtos</Link></button>
+          
+          <button className={styles['content-side-bar']}><Link to='/estoque'>Estoque</Link></button>
         </div>
         <div id={styles['result']}>
           <input type="text" 
-          placeholder='pesquise'
+          placeholder='pesquise algum produto'
           />
+          <button id={styles['icons']}><AiOutlineSearch/></button>
+          
         </div>
-        <div id={styles["interface"]}></div>
+        <div id={styles["interface"]}>
+          <h1>Principal</h1>
+        </div>
         
         
     </div>

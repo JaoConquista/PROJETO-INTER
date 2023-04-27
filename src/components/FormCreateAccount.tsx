@@ -56,10 +56,6 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     senha : ''
   })
 }
-
-  
-
-
   return (
     <div className={styles['create-account']}>
     <ToastContainer/>
@@ -75,6 +71,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
             required
             value={formValues.usuario}
             placeholder='Digite seu nome...'
+            autoComplete='none'
             onChange={handleInputChange}
             />
         </label>

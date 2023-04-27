@@ -12,7 +12,7 @@ html, body {
     'A B'
     'A C';
 
-    height: 99.5vh;
+    height: 100vh;
   }
   
   #side-bar {
@@ -27,17 +27,26 @@ html, body {
     justify-content: flex-start;
     align-items: center;
   }
+
+  #side-bar a{
+    text-decoration: none;
+    color: inherit;
+  }
   
   #result {
-    background-color: #ccc;
     grid-area: B;
     width: 79.5vw;
     height: 2em;
+
+    display: flex;
+    align-items: center;
+
+    border-bottom: 1px solid #ccc;
   }
   #result input {
     margin-left: 1em;
     width: 80%;
-    height: 100%;
+    height: 80%;
     border: none;
     border-radius: 10px;
 
@@ -48,5 +57,50 @@ html, body {
     background-color: #fff;
     grid-area: C;
     height: 93.5vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .content-side-bar{
+    width: 100%;
+    height: 3em;
+    text-align: center;
+    background-color: #4b4646;
+    border: none;
+    
+
+    color: #fff;
+    font-weight: bolder;
+    font-family: 'Ubuntu';
+    font-size: 20px;
+  }
+
+  .content-side-bar:hover {
+    padding-left: 10px;
+    transition: 0.8s;
+    background-color: #ccc;
+    color: #4b4646;
+  }
+
+  #icons{
+    text-align: center;
+    margin-left: 10px;
+    font-size: 24px;
+    border: none;
+    background-color: #ccc;
+    color: #000;
+
+    width: 2.5em;
+    height: 80%;
+    border-radius: 10px;
+  }
+
+  #icons:hover{
+    transition: 0.5s;
+    background-color: #4b4646;
+    color: #fff;
   }
   
