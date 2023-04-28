@@ -65,7 +65,6 @@ html, body {
   }
   
   #interface {
-    /*defina a largura que desejar*/
     background-color: #fff;
     grid-area: C;
     height: 100%;

@@ -7,12 +7,14 @@ import styles from '../ModuleCss/Form.module.css'
 //Importações de componentes
 import FormLogIn from './FormLogIn';
 //Link de direcionamento para outra página pelo reat router
-import { Link, redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { useNavigate} from "react-router-dom";
 
 const FormCreateAccount = () => { 
-
-const notify = () => toast.success("Cadastro realizado ! Faça seu Login...")
-const notifyRedirection = () => toast.warn("Redirecionado para login ...")
+//Notificação de sucesso
+const successNotify = () => toast.success('Sucesso ! fazendo login...');
+//Navegação entre as rotas usando o hook useNavigate
+const navigate = useNavigate()
 
 //Estado que armazena dados do cliente para eferuar o cadastro
 const [formValues,setFormValues] = useState({
@@ -20,8 +22,7 @@ const [formValues,setFormValues] = useState({
     email :  '',
     senha : ''
 })
-
-const [redi,setRedirect] = useState(false)
+const [redirect,setRedirect] = useState(false)
 //Funções
 
 // handleInputChange =  altera o valor usuario, email e senha ao preencher o formulário
@@ -29,25 +30,11 @@ function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
   const { name, value } = e.target;
   setFormValues({ ...formValues, [name]: value });
 }
-function redirection () {
-  
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setRedirect(true);
-    },3000);
-
-    return () => {
-      clearTimeout(timer)
-    };
-  }, []);
-}
-
 // handleSubmit = lida com a submissão do formlário
 const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault()
   
-  notify()
+  
   console.log(formValues)
   
   setFormValues({
@@ -55,6 +42,10 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     email :  '',
     senha : ''
   })
+
+  successNotify()
+  //mudando de rota automaticamente
+  setTimeout( () => {navigate('/login')},2000)
 }
   return (
     <div className={styles['create-account']}>
@@ -94,11 +85,12 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
             value={formValues.senha}
             onChange={handleInputChange}/>
         </label>
-        <button type='submit'>Criar conta</button>
+        <button className={styles['form-btn']} type='submit'>Criar conta</button>
     </form>
     <p>Já possui uma conta ? <Link to='/login'>Entre aqui</Link></p>
     </div>
   )
+
 }
 
 export default FormCreateAccount

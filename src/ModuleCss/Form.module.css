@@ -37,3 +37,26 @@ input:focus{
     box-shadow: 0 0 0 0;
     outline: 0;
 }
+
+.form-btn{
+    text-align: center;
+    margin-left: 10px;
+    font-size: 15px;
+    font-weight: lighter;
+    border: none;
+    background-color: #ccc;
+    color: #000;
+    height: 2em;
+    border-radius: 10px;
+}
+
+.form-btn:hover{
+    transition: 0.5s;
+    background-color: #4b4646;
+    color: #fff;
+}
+
+a{
+    text-decoration: none;
+    color: #115bda;
+}
