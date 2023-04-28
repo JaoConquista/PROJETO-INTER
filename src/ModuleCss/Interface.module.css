@@ -5,14 +5,24 @@ html, body {
   }
   
   .main {
+    display: flex;
+    justify-content: space-between;
+  }
 
-    display: grid;
-    grid-template-columns: max-content max-content;
-    grid-template-areas: 
-    'A B'
-    'A C';
-
-    height: 100vh;
+  .account{
+    display: flex;
+    justify-content:end;
+    align-items: center;
+    width: 98%;
+    height: 2em;
+    font-size: 18px;
+    font-weight: bolder;
+  }
+   .account p{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-right: 10px;
   }
   
   #side-bar {
@@ -26,6 +36,9 @@ html, body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+
+    position: fixed;
+    height: 100%;
   }
 
   #side-bar a{
@@ -35,13 +48,12 @@ html, body {
   
   #result {
     grid-area: B;
-    width: 79.5vw;
+    width: 77.5vw;
     height: 2em;
 
     display: flex;
     align-items: center;
 
-    border-bottom: 1px solid #ccc;
   }
   #result input {
     margin-left: 1em;
@@ -56,12 +68,16 @@ html, body {
     /*defina a largura que desejar*/
     background-color: #fff;
     grid-area: C;
-    height: 93.5vh;
+    height: 100%;
+    width: 76vw;
 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+
+    
   }
 
   .content-side-bar{
@@ -76,11 +92,12 @@ html, body {
     font-weight: bolder;
     font-family: 'Ubuntu';
     font-size: 20px;
+    transition: 0.4s;
   }
 
   .content-side-bar:hover {
-    padding-left: 10px;
-    transition: 0.8s;
+    padding-left: 45px;
+    transition: 0.4s;
     background-color: #ccc;
     color: #4b4646;
   }
