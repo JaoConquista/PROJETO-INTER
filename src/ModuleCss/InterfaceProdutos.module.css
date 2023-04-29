@@ -1,0 +1,61 @@
+
+.card-produtos{
+    width: 60%;
+    border-radius: 13px;
+    font-weight: bolder;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.section1-card{
+    width: 10em;
+    border-right: 1px solid #ccc;
+    padding-right: 20px;
+    border-radius:  13px 0px 0px 13px;
+    text-align: center;
+
+    background-color: #4b4646;
+    color: aliceblue;
+}
+
+.nome , .marca{
+    font-size: small;
+    display: flex;
+    justify-content: start;
+    padding-left: 8px;
+}
+
+.section2-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ccc;
+    border-radius: 0 13px 13px 0px;
+    width: 100%;
+}
+
+.informations{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+    margin-bottom: 10px;
+}
+
+.icons{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    font-size: 20px;
+
+    padding:  0px 50px 15px 0px;
+}
+.icons:hover{
+    color: aliceblue;
+}
+span{
+    margin: 10px 10px 10px 20px;
+}
