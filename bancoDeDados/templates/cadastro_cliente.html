@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="{{url_for('cadas_cliente')}}" method="POST">
+
+        <label>Nome</label>
+        <input type="text" name="nome" required autocomplete="off">
+        <label>cpf</label>
+        <input type="text" name="cpf" required autocomplete="off">
+        <label>senha</label>
+        <input type="text" name="pwd" required autocomplete="off">
+        <label>Endereco</label>
+        <input type="text" name="Endereco"required autocomplete="off">
+
+        <button>cadastrar</button>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Cpf</th>
+                    <th>Senha</th>
+                    <th>Endereço</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+    
+            <tbody>
+                {%for cd in consultas%}
+                <tr>
+                    <td>{{cd.nome}}</td>
+                    <td>{{cd.cpf}}</td>
+                    <td>{{cd.senha}}</td>
+                    <td>{{cd.endereco}}</td>
+                    <td>
+                        <button type="submit" action="url_for('delete')">delete</button>
+                    </td>
+                </tr>
+                {%endfor%}
+            </tbody>
+    
+        </table>
+
+    </form> 
+</body>
+</html>

@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+//Requisições HTTP com axios
+import axios from 'axios';
 //Biblioteca de notificações
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
@@ -18,9 +20,9 @@ const navigate = useNavigate()
 
 //Estado que armazena dados do cliente para eferuar o cadastro
 const [formValues,setFormValues] = useState({
-    usuario : '',
-    email :  '',
-    senha : ''
+    nome : '',
+    cpf :  '',
+    pwd : ''
 })
 const [redirect,setRedirect] = useState(false)
 //Funções
@@ -38,15 +40,16 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   console.log(formValues)
   
   setFormValues({
-    usuario : '',
-    email :  '',
-    senha : ''
+    nome : '',
+    cpf :  '',
+    pwd : ''
   })
 
   successNotify()
   //mudando de rota automaticamente
   setTimeout( () => {navigate('/login')},2000)
 }
+
   return (
     <div className={styles['create-account']}>
     <ToastContainer/>
@@ -55,24 +58,24 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     onSubmit={handleSubmit}
     className={styles['form']}>
         <label className={styles['label']}>
-            Usuário: 
+            Nome: 
             <input 
             type="text"
-            name='usuario'
+            name='nome'
             required
-            value={formValues.usuario}
+            value={formValues.nome}
             placeholder='Digite seu nome...'
             autoComplete='none'
             onChange={handleInputChange}
             />
         </label>
         <label>
-            Email:
+            CPF:
             <input 
-            type="email" 
-            name='email'
+            type="text" 
+            name='cpf'
             required
-            value={formValues.email}
+            value={formValues.cpf}
             placeholder='Digite seu email...'
             onChange={handleInputChange}/>
         </label>
@@ -80,9 +83,9 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
             Senha:
             <input 
             type="password" 
-            name='senha'
+            name='pwd'
             required
-            value={formValues.senha}
+            value={formValues.pwd}
             onChange={handleInputChange}/>
         </label>
         <button className={styles['form-btn']} type='submit'>Criar conta</button>
