@@ -10,8 +10,7 @@ import InterfaceVendas from './components/InterfaceVendas';
 import InterfaceEstoque from './components/InterfaceEstoque';
 //importando o React Router
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
-//CSS
-import './App.css'
+
 
 
 function App() {
@@ -21,7 +20,7 @@ function App() {
 
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<FormCreateAccount/>}/>
+          <Route path='/create-account' element={<FormCreateAccount/>}/>
           <Route path='/login' element={<FormLogIn/>}/>
           <Route path='/principal' element={<Interface/>}/>
           <Route path='/produtos' element={<InterfaceProdutos/>}/> 

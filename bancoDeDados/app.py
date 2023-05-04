@@ -1,7 +1,11 @@
 from flask import Flask,request,render_template,redirect,url_for
 from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS
+from flask import jsonify
+
 
 app = Flask(__name__)
+CORS(app)
 app.config["SQLALCHEMY_DATABASE_URI"]= "sqlite:///app.db"
 
 db = SQLAlchemy(app)
@@ -41,11 +45,15 @@ def home():
 @app.route("/cadas_cliente", methods=["GET","POST"])
 def cadas_cliente():
     if request.method == "POST":
-        name = request.form["nome"]
-        cpf = request.form["cpf"]
-        senha = request.form["pwd"]
-        endereco = request.form["Endereco"]
 
+        print(request.form)
+        print(request.method)
+
+        name = request.json["nome"]
+        cpf = request.json["cpf"]
+        senha = request.json["pwd"]
+        endereco = request.json["endereco"]
+ 
         salvar = cadastrar_clientes()
         salvar.nome = name
         salvar.cpf = cpf
@@ -55,8 +63,16 @@ def cadas_cliente():
         db.session.commit()
     
     consultas = cadastrar_clientes.query.all()
-    return render_template("cadastro_cliente.html", consultas=consultas)
-
+    return (
+        
+        jsonify(
+            nome = request.json["nome"],
+            cpf = request.json["cpf"],
+            senha = request.json["pwd"],
+            endereco = request.json["endereco"]
+        )
+        # render_template("cadastro_cliente.html", consultas=consultas)
+    )
 
 #rota cadastro consulta
 @app.route("/cadas_produto", methods=["GET", "POST"])
@@ -90,4 +106,3 @@ def delete(id):
 
 if __name__ == "__main__":
     app.run(debug=True)
-
