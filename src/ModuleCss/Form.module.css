@@ -60,3 +60,20 @@ a{
     text-decoration: none;
     color: #115bda;
 }
+
+.form-products{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 21em;
+}
+
+.form-products input{
+    margin: 18px;
+}
+
+.control-btns{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}

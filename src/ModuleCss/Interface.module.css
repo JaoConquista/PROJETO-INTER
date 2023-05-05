@@ -36,6 +36,7 @@ html, body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    pointer-events: all;
 
     position: fixed;
     height: 100%;
@@ -55,6 +56,7 @@ html, body {
     align-items: center;
 
   }
+
   #result input {
     margin-left: 1em;
     width: 80%;
@@ -64,6 +66,19 @@ html, body {
 
   }
   
+  #add-products {
+    grid-area: B;
+    width: 77.5vw;
+    height: 75vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    align-items: center;
+    margin: 0 auto;
+
+  }
   #interface {
     background-color: #fff;
     grid-area: C;

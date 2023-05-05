@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { errorNotify, successNotify } from '../utils/toast';
 import { createAccount } from '../services/AccountService';
 import { Account } from '../interfaces/Account';
+import { Toast } from 'react-toastify/dist/components';
 
 
 
@@ -45,15 +46,21 @@ const FormCreateAccount = () => {
       pwd: '',
       endereco: '',
     })
-    try {
-      const response = await createAccount(formValues)
+    try {  
       successNotify()
-      setTimeout(() => { navigate('/login') }, 2500)
-      
+
+      setLoading(true)
+      const response = await createAccount(formValues)
+     
+      setLoading(false)
+      navigate('/login')
+
     } catch (error) {
       errorNotify()
     }
   }
+  //Loading
+  const [loading, setLoading] = useState(false)
 
 
     return (
@@ -61,7 +68,7 @@ const FormCreateAccount = () => {
         <h2>Crie sua conta</h2>
         <form
           onSubmit={handleSubmit}
-          className={styles['form']}>
+          className={styles['form-products']}>
           <label className={styles['label']}>
             Nome:
             <input
@@ -102,7 +109,9 @@ const FormCreateAccount = () => {
               value={formValues.endereco}
               onChange={handleInputChange} />
           </label>
-          <button className={styles['form-btn']} type='submit'>Criar conta</button>
+          {loading && <button className={styles['form-btn']} disabled type='submit'>Aguarde ...</button>}
+          {!loading && <button className={styles['form-btn']} type='submit'>Criar conta</button>}
+          
         </form>
         <p>Já possui uma conta ? <Link to='/login'>Entre aqui</Link></p>
       </div>

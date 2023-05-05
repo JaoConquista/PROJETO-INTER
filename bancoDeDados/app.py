@@ -71,17 +71,16 @@ def cadas_cliente():
             senha = request.json["pwd"],
             endereco = request.json["endereco"]
         )
-        # render_template("cadastro_cliente.html", consultas=consultas)
     )
 
 #rota cadastro consulta
 @app.route("/cadas_produto", methods=["GET", "POST"])
 def cadas_produto():
     if request.method== "POST":
-        produto = request.form["produto"]
-        quantidade = request.form["qtd"]
-        tipo_vinho = request.form["tipo"]
-        data_validade = request.form["data"]
+        produto = request.json["produto"]
+        quantidade = request.json["qtd"]
+        tipo_vinho = request.json["tipo"]
+        data_validade = request.json["data"]
 
         salvar = cadastro_produtos()
         salvar.produto = produto
@@ -92,7 +91,14 @@ def cadas_produto():
         db.session.commit()
     
     consultas = cadastro_produtos.query.all()
-    return render_template("cadastro_produto.html", consultas=consultas)
+    return (
+        jsonify(
+            produto = request.json['produto'],
+            tipo = request.json['tipo'],
+            data = request.json['data'],
+            qtd = request.json['qtd']
+        )
+    )
 
 
 #deletar
