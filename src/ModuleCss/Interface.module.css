@@ -69,14 +69,15 @@ html, body {
   #add-products {
     grid-area: B;
     width: 77.5vw;
-    height: 75vh;
+    height: 99vh;
+
 
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     align-items: center;
-    margin: 0 auto;
+    margin: auto;
 
   }
   #interface {

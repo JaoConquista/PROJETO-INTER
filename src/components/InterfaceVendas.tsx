@@ -22,16 +22,9 @@ const InterfaceVendas = () => {
         </div>
             </div>
             <div className="section2">
-        <div id={styles['result']}>
-          <input type="text" 
-          placeholder='pesquise algum produto'
-          />
-          <button id={styles['icons']}><AiOutlineSearch/></button>
-          
-        </div>
-        <div id={styles["interface"]}>
-          <h1>Vendas</h1>
-        </div>
+              <div id={styles["interface"]}>
+                <h1>Vendas</h1>
+              </div>
             </div>            
         </div>
       )

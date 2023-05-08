@@ -2,17 +2,18 @@ import React from 'react'
 import { useState } from "react";
 
 import { successNotify, errorNotify } from "../utils/toast";
-import { Toast } from 'react-toastify/dist/components';
 
 import stylesProdutos from '../ModuleCss/InterfaceProdutos.module.css'
 import styleInterface from '../ModuleCss/Interface.module.css'
 import styleForm from '../ModuleCss/Form.module.css'
 import { Products } from '../interfaces/Products';
 
+
 import {AiFillCheckCircle} from  "react-icons/ai"
 import {GiCancel} from  "react-icons/gi"
 
 import { createProduct } from '../services/ProductService';
+import { ToastContainer } from 'react-toastify';
 
 interface AddProductProps {
     handleExit : () => void
@@ -37,6 +38,7 @@ const AddProduct: React.FC<AddProductProps> = ({handleExit}) => {
         successNotify()
         try{
             const res = await createProduct(product)
+            handleExit()
 
         }catch (error){
             errorNotify()
@@ -50,9 +52,9 @@ return(
             <h1>Adicione seus produtos !</h1>
                 <form 
                 onSubmit={handleSubmit}
-                className={styleForm['form-products']}>
-                    <div className="products">
-                        <label className={styleForm['label']}>
+                >
+                    <div id={stylesProdutos["products"]}>
+                        <label>
                             Nome : 
                             <input 
                             type="text" 
@@ -86,7 +88,7 @@ return(
                             />
                         </label>
                         <label>
-                            Data : 
+                            Data de Vencimento : 
                             <input 
                             type="date" 
                             name='data'
@@ -95,9 +97,24 @@ return(
                             onChange={handleInputChange}
                             />
                         </label>
+                        <label>
+                            Preço de Custo :
+                            <input 
+                            type="text"
+                            required/>
+                        </label>
+                        <label>
+                            Preço de Venda :
+                            <input 
+                            type="text"
+                            required/>
+                        </label>
                     </div>
-                        <button type="button" className={stylesProdutos['icons']} onClick={handleExit}> <GiCancel/> </button>
-                        <button type='submit' className={stylesProdutos['icons']}><AiFillCheckCircle/></button>
+                    <div className={stylesProdutos["control-btns"]}>
+                        <button type="button" id={stylesProdutos['cancel-btn']} onClick={handleExit}><GiCancel/></button>
+                        <button type='submit' id={stylesProdutos['check-btn']}><AiFillCheckCircle/></button>
+                    </div>
+                        
                 </form>
         </div>
     </div>

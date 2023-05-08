@@ -56,10 +56,9 @@
     margin-right: 10px;
     margin-bottom: 10px;
 }
-.icons{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#search-btn , #add-btn, #cancel-btn, #check-btn{
+
+    margin-left: 10px;
     border: none;
     background-color: #ccc;
     color: #000;
@@ -70,7 +69,7 @@
     border-radius: 10px;
   }
 
-  .icons:hover{
+  #search-btn:hover ,#add-btn:hover, #cancel-btn:hover, #check-btn:hover{
     transition: 0.5s;
     background-color: #4b4646;
     color: #fff;
@@ -80,14 +79,39 @@ span{
     margin: 10px 10px 10px 20px;
 }
 
-#add-products p {
-    text-align: center;
+#header-add-products{
+    height: 5em;
     display: flex;
     align-items: center;
-    padding-right: 15px;
-    font-weight: bolder;
+    justify-content: space-between;
+    padding-right: 20px ;
 }
 
- .content {
-    height: 40%;
+#header-add-products input{
+    height: 3.2em;
+    width: 50em;
+    border-radius: 10px;
+    background-color: #4b4646;
+}
+
+.control-btns{
+    width: 10em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.content{
+    margin: 0 auto;
+    height: 30em;
+
+}
+
+.content #products{
+    height: 18em;
+    display: flex;
+    flex-direction: column;
+}
+
+.content label{
+    margin-right: 10px;
 }

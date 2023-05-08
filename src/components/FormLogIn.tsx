@@ -11,9 +11,6 @@ import { useNavigate } from 'react-router-dom';
 
 
 const FormLogIn = () => {
-  //Mensagens de erro ou sucesso
-  const errorNotify = () => toast.error("Login não encontrado")
-  const succeedNotify = () => toast.success("Login não encontrado")
 
   const navigate = useNavigate()
 
