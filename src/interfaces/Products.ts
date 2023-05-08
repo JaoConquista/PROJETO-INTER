@@ -1,6 +1,6 @@
-export interface Products {
-    produto : String,
-    tipo : String,
-    data : String,
-    qtd : Number,
+export interface Product {
+    produto: string;
+    tipo: string;
+    data: string;
+    qtd: number
 }

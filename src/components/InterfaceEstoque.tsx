@@ -10,6 +10,7 @@ const InterfaceEstoque = () => {
     return (
         <div className={styles['main']}>
             <div className="section1">
+        {/* *Componentizar side-bar */}
         <div id={styles['side-bar']}>
 
           <button className={styles['content-side-bar']}><Link to='/principal'>Início</Link></button>
