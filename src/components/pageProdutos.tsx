@@ -1,27 +1,20 @@
 import { useEffect, useState } from 'react'
 
-//Componentes
 import AddProduct from './pageAddProduct'
-
-//Funções
+import SideBar from './StructurePage/sideBar'
 import { getProducts, postProduct } from '../services/ProductService'
+import { Product } from '../interfaces/Products'
+
 import { errorNotify, successNotify } from '../utils/toast'
-
-import { Link } from 'react-router-dom'
-//Icones
 import { AiFillEdit, AiOutlineSearch } from "react-icons/ai"
-
-//CSS
 import styles from '../ModuleCss/Interface.module.css'
 import styleProdutos from '../ModuleCss/InterfaceProdutos.module.css'
-
-import { Product } from '../interfaces/Products'
 
 
 const InterfaceProdutos = () => {
 
   const [items, setItems] = useState<Product[]>([])
-  
+
   const [showAddForm, setShowAddForm] = useState(false)
 
   useEffect(() => {
@@ -53,24 +46,11 @@ const InterfaceProdutos = () => {
   return (
     <div className={styles['main']}>
       <div className="section1">
-        <div id={styles['side-bar']}>
+        
+        <SideBar />
 
-          <button className={styles['content-side-bar']}><Link to='/principal'>Início</Link></button>
-
-          <button className={styles['content-side-bar']}><Link to='/vendas'>Vendas</Link></button>
-
-          <button className={styles['content-side-bar']}><Link to='/produtos'>Produtos</Link></button>
-
-          <button className={styles['content-side-bar']}><Link to='/estoque'>Estoque</Link></button>
-        </div>
       </div>
       {showAddForm === false && <div className={styleProdutos["section2"]}>
-        {/*<div id={styles['result']}>
-            <input type="text"
-              placeholder='pesquise algum produto'
-            />
-            <button id={styles['icons']}><AiOutlineSearch /></button>
-          </div>*/}
         <div id={styles["interface"]}>
           <div id="title"><h1>Produtos</h1></div>
           <div id={styleProdutos["header-add-products"]}>

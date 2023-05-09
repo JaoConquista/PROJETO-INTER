@@ -1,43 +1,34 @@
 import React from 'react'
 
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+
+import SideBar from './StructurePage/sideBar';
 
 import { AiOutlineSearch } from "react-icons/ai";
 //CSS
 import styles from '../ModuleCss/Interface.module.css'
 
-const InterfaceEstoque = () => {
-    return (
-        <div className={styles['main']}>
-            <div className="section1">
-        {/* *Componentizar side-bar */}
-        <div id={styles['side-bar']}>
+const InterfaceEstoque = () => (
+  <div className={styles['main']}>
+    <div className="section1">
 
-          <button className={styles['content-side-bar']}><Link to='/principal'>Início</Link></button>
+      <SideBar />
 
-          <button className={styles['content-side-bar']}><Link to='/vendas'>Vendas</Link></button>
+    </div>
+    <div className="section2">
+      <div id={styles['result']}>
+        <input type="text"
+          placeholder='pesquise algum produto' />
+        <button id={styles['icons']}><AiOutlineSearch /></button>
 
-          <button className={styles['content-side-bar']}><Link to='/produtos'>Produtos</Link></button>
+      </div>
+      <div id={styles["interface"]}>
+        <h1>Estoque</h1>
+      </div>
+    </div>
 
-          <button className={styles['content-side-bar']}><Link to='/estoque'>Estoque</Link></button>
-        </div>
-       </div>
-        <div className="section2">
-        <div id={styles['result']}>
-          <input type="text" 
-          placeholder='pesquise algum produto'
-          />
-          <button id={styles['icons']}><AiOutlineSearch/></button>
-          
-        </div>
-        <div id={styles["interface"]}>
-          <h1>Estoque</h1>
-        </div>
-        </div>
-            
-            
-        </div>
-      )
-}
+
+  </div>
+)
 
 export default InterfaceEstoque

@@ -41,8 +41,8 @@ def home():
     return
 
 
-#rota cadastro cliente
-@app.route("/cadas_cliente", methods=["GET","POST"])
+#CLIENTE
+@app.route("/cadas_cliente", methods=["POST"])
 def cadas_cliente():
     if request.method == "POST":
 
@@ -61,9 +61,9 @@ def cadas_cliente():
         salvar.endereco = endereco
         db.session.add(salvar)
         db.session.commit()
-    
-    consultas = cadastrar_clientes.query.all()
-    return (
+        consultas = cadastrar_clientes.query.all()
+
+        return (
         
         jsonify(
             nome = request.json["nome"],
@@ -73,7 +73,21 @@ def cadas_cliente():
         )
     )
 
-#rota cadastro consulta
+@app.route("/cadas_cliente", methods=["GET"])
+def get_cadas_cliente() :
+    consultas = cadastrar_clientes.query.all()
+    client = []
+    for data in consultas :
+        client.append({
+            "id": data.id,
+            "nome": data.nome,
+            "senha": data.senha,
+            "cpf": data.cpf,
+            "endereco": data.endereco
+        })
+    return jsonify(client)
+
+#PRODUTOS
 @app.route("/cadas_produto", methods=["POST"])
 def cadas_produto():
     if request.method== "POST":
