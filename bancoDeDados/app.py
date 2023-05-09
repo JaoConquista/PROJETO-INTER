@@ -119,6 +119,7 @@ def get_cadas_produto() :
         produtos = []
         for consulta in consultas:
             produtos.append({
+                "id": consulta.id,
                 "produto": consulta.produto,
                 "tipo": consulta.tipo_vinho,
                 "data": consulta.data_validade,

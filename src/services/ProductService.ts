@@ -17,7 +17,7 @@ export function postProduct(product: Product): Promise<any> {
 }
 
 export async function getProducts(): Promise<Product[]> {
-    // Usar try catch
+    //Todo: Usar try catch
     const response = await axios.get<Product[]>(urlProdutos)
 
     const products = response.data
