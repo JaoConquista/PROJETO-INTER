@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 //Componentes
-import AddProduct from './AddProduct'
+import AddProduct from './pageAddProduct'
 
 //Funções
 import { getProducts, postProduct } from '../services/ProductService'
@@ -21,6 +21,7 @@ import { Product } from '../interfaces/Products'
 const InterfaceProdutos = () => {
 
   const [items, setItems] = useState<Product[]>([])
+  
   const [showAddForm, setShowAddForm] = useState(false)
 
   useEffect(() => {

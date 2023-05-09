@@ -1,26 +1,18 @@
 import React, { useEffect, useState } from 'react'
-//Requisições HTTP com axios
 import axios from 'axios';
-//Biblioteca de notificaçõe
-//CSS
 import styles from '../ModuleCss/Form.module.css'
-//Importações de componentes
-import FormLogIn from './FormLogIn';
-//Link de direcionamento para outra página pelo reat router
 import { Link } from 'react-router-dom'
 import { useNavigate } from "react-router-dom";
 import { errorNotify, successNotify } from '../utils/toast';
 import { createAccount } from '../services/AccountService';
 import { Account } from '../interfaces/Account';
-import { Toast } from 'react-toastify/dist/components';
 
 
 
 const FormCreateAccount = () => {
-  //Navegação entre as rotas usando o hook useNavigate
+  
   const navigate = useNavigate()
 
-  //Estado que armazena dados do cliente para eferuar o cadastro
   const [formValues, setFormValues] = useState<Account>({
     nome: '',
     cpf: '',

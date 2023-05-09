@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
-
-
 import styleInterface from '../ModuleCss/Interface.module.css';
 import stylesProdutos from '../ModuleCss/InterfaceProdutos.module.css';
 import { Product } from '../interfaces/Products';
-
-
 import { AiFillCheckCircle } from "react-icons/ai";
 import { GiCancel } from "react-icons/gi";
 

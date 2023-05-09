@@ -1,12 +1,8 @@
 import React from 'react'
-//Toastfy
-import {ToastContainer, toast} from 'react-toastify';
+import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
-//CSS
 import styles from '../ModuleCss/Form.module.css'
-
 import {Link} from 'react-router-dom'
-
 import { useNavigate } from 'react-router-dom';
 
 
