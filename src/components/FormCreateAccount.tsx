@@ -14,6 +14,7 @@ const FormCreateAccount = () => {
   const navigate = useNavigate()
 
   const [formValues, setFormValues] = useState<Account>({
+    id: 0,
     nome: '',
     cpf: '',
     pwd: '',
@@ -33,6 +34,7 @@ const FormCreateAccount = () => {
     console.log(formValues)
 
     setFormValues({
+      id: 0,
       nome: '',
       cpf: '',
       pwd: '',

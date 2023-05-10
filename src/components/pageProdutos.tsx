@@ -7,11 +7,17 @@ import { Product } from '../interfaces/Products'
 
 import { errorNotify, successNotify } from '../utils/toast'
 import { AiFillEdit, AiOutlineSearch } from "react-icons/ai"
+import {BsPlusLg} from 'react-icons/bs'
+import {GiTerror} from 'react-icons/gi'
+
 import styles from '../ModuleCss/Interface.module.css'
 import styleProdutos from '../ModuleCss/InterfaceProdutos.module.css'
 
 
+
 const InterfaceProdutos = () => {
+
+  const [searchInput, setSearchInput] = useState('')
 
   const [items, setItems] = useState<Product[]>([])
 
@@ -20,6 +26,14 @@ const InterfaceProdutos = () => {
   useEffect(() => {
     fetchData()
   }, [])
+
+  const filteredProducts = searchInput.length > 0 ? 
+    items.filter(items => items.produto.includes(searchInput))
+    : []
+  
+  const filteredTypeWine = searchInput.length > 0 ?
+    items.filter(items => items.tipo.includes(searchInput))
+    : []
 
   const fetchData = async () => {
     const data = await getProducts();
@@ -54,42 +68,84 @@ const InterfaceProdutos = () => {
         <div id={styles["interface"]}>
           <div id="title"><h1>Produtos</h1></div>
           <div id={styleProdutos["header-add-products"]}>
-            <div>
-              <input type="text" placeholder='pesquise algum produto' />
-              <button id={styleProdutos['search-btn']}><AiOutlineSearch /></button>
+            <div id={styleProdutos["search-content"]}>
+              <input 
+              type="text" 
+              placeholder='Buscar ...' 
+              value={searchInput}
+              onChange={ e => setSearchInput(e.target.value)}/>
             </div>
             <div>
-              <button id={styleProdutos["add-btn"]} onClick={() => setShowAddForm(true)}>+</button>
+              <button id={styleProdutos["add-btn"]} onClick={() => setShowAddForm(true)}><BsPlusLg/></button>
             </div>
           </div>
           <div id={styleProdutos["content-cards"]}>
-            {items && items.map((product, index) => (
-              <div className={styleProdutos["card-produtos"]} key={index}>
-                <div className={styleProdutos["section1-card"]}>
-                  <span>
-                    <p className={styleProdutos['nome']}>Nome</p>
-                    <p>{product.produto}</p>
-                  </span>
-                  <span>
-                    <p className={styleProdutos['marca']}>Tipo</p>
-                    <p>{product.tipo}</p>
-                  </span>
-                </div>
-                <div className={styleProdutos["section2-card"]}>
-                  <div className={styleProdutos["informations"]}>
-                    <span><p>Unidades</p><p>{product.qtd} </p></span>
-                    <span><p>P / Custo</p><p>-</p></span>
-                    <span><p>P / Venda</p><p>-</p></span>
-                    <span><p>Vencimento</p><p>{product.data}</p></span>
+            {searchInput.length > 0 ? (
+              filteredProducts.map((product, index) => (
+                <div className={styleProdutos["card-produtos"]} key={index}>
+                  <div className={styleProdutos["section1-card"]}>
+                    <span>
+                      <p className={styleProdutos['nome']}>Nome</p>
+                      <p>{product.produto}</p>
+                    </span>
+                    <span>
+                      <p className={styleProdutos['marca']}>Tipo</p>
+                      <p>{product.tipo}</p>
+                    </span>
                   </div>
-                  <div className={styleProdutos["control-icons"]}>
-                    <div className={styleProdutos["icons"]}>
-                      <AiFillEdit />
+                  <div className={styleProdutos["section2-card"]}>
+                    <div className={styleProdutos["informations"]}>
+                      <span><p>Unidades</p><p>{product.qtd} </p></span>
+                      <span><p>P / Custo</p><p>-</p></span>
+                      <span><p>P / Venda</p><p>-</p></span>
+                      <span><p>Vencimento</p><p>{product.data}</p></span>
+                    </div>
+                    <div className={styleProdutos["control-icons"]}>
+                      <div className={styleProdutos["icons"]}>
+                        <AiFillEdit />
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))
+            ):(
+              items.length > 0 ? (
+                items.map((product, index) => (
+                              <div className={styleProdutos["card-produtos"]} key={index}>
+                                <div className={styleProdutos["section1-card"]}>
+                                  <span>
+                                    <p className={styleProdutos['nome']}>Nome</p>
+                                    <p>{product.produto}</p>
+                                  </span>
+                                  <span>
+                                    <p className={styleProdutos['marca']}>Tipo</p>
+                                    <p>{product.tipo}</p>
+                                  </span>
+                                </div>
+                                <div className={styleProdutos["section2-card"]}>
+                                  <div className={styleProdutos["informations"]}>
+                                    <span><p>Unidades</p><p>{product.qtd} </p></span>
+                                    <span><p>P / Custo</p><p>-</p></span>
+                                    <span><p>P / Venda</p><p>-</p></span>
+                                    <span><p>Vencimento</p><p>{product.data}</p></span>
+                                  </div>
+                                  <div className={styleProdutos["control-icons"]}>
+                                    <div className={styleProdutos["icons"]}>
+                                      <AiFillEdit />
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                ))
+              ):(
+                <div id={styleProdutos['No-Data']}>
+                  <p>Que tal adicionar algo ?</p>
+                  <div id={styleProdutos["icon-no-found"]}>
+                    <GiTerror/>
+                  </div>
+                </div>
+              ))}              
+              
           </div>
         </div>
       </div>}

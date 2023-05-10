@@ -56,25 +56,34 @@
     margin-right: 10px;
     margin-bottom: 10px;
 }
-#search-btn , #add-btn, #cancel-btn, #check-btn{
+
+#add-btn, #cancel-btn, #check-btn{
 
     margin-left: 10px;
     border: none;
     background-color: #ccc;
     color: #000;
     font-size: 18px;
+    text-align: center;
 
     width: 2.5em;
     height: 2.5em;
     border-radius: 10px;
-  }
+}
+
+#add-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 
   #search-btn:hover ,#add-btn:hover, #cancel-btn:hover, #check-btn:hover{
     transition: 0.5s;
     background-color: #4b4646;
     color: #fff;
     cursor: pointer;
-  }
+}
 span{
     margin: 10px 10px 10px 20px;
 }
@@ -83,7 +92,7 @@ span{
     height: 5em;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding-right: 20px ;
 }
 
@@ -91,7 +100,9 @@ span{
     height: 3.2em;
     width: 50em;
     border-radius: 10px;
-    background-color: #4b4646;
+    background-color: #ccc;
+    border: none;
+    color: #000;
 }
 
 .control-btns{
@@ -114,4 +125,18 @@ span{
 
 .content label{
     margin-right: 10px;
+}
+
+#No-Data {
+    color: #817878;
+    font-weight: bolder;
+}
+
+#No-Data #icon-no-found{
+    font-size: 10em;
+    color: #ccc;
+}
+
+#No-Data p {
+    font-weight: bolder;
 }
