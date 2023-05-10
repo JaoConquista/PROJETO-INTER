@@ -21,19 +21,15 @@ const InterfaceProdutos = () => {
 
   const [items, setItems] = useState<Product[]>([])
 
-  const [showAddForm, setShowAddForm] = useState(false)
+  const [showAddForm, setShowAddForm] = useState(false) 
+
+  const filteredProducts = searchInput.length > 0 ? 
+      items.filter(items => items.produto.includes(searchInput))
+      : []
 
   useEffect(() => {
     fetchData()
   }, [])
-
-  const filteredProducts = searchInput.length > 0 ? 
-    items.filter(items => items.produto.includes(searchInput))
-    : []
-  
-  const filteredTypeWine = searchInput.length > 0 ?
-    items.filter(items => items.tipo.includes(searchInput))
-    : []
 
   const fetchData = async () => {
     const data = await getProducts();
