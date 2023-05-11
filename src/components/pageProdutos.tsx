@@ -2,16 +2,17 @@ import { useEffect, useState } from 'react'
 
 import AddProduct from './pageAddProduct'
 import SideBar from './StructurePage/sideBar'
-import { getProducts, postProduct } from '../services/ProductService'
+import { getProducts, postProduct, deleteProduct } from '../services/ProductService'
 import { Product } from '../interfaces/Products'
 
 import { errorNotify, successNotify } from '../utils/toast'
-import { AiFillEdit, AiOutlineSearch } from "react-icons/ai"
+import { AiFillEdit, AiOutlineDelete } from "react-icons/ai"
 import {BsPlusLg} from 'react-icons/bs'
 import {GiTerror} from 'react-icons/gi'
 
 import styles from '../ModuleCss/Interface.module.css'
 import styleProdutos from '../ModuleCss/InterfaceProdutos.module.css'
+import ProductCard from './ProductCard'
 
 
 
@@ -47,6 +48,12 @@ const InterfaceProdutos = () => {
     }
   }
 
+  const switchOffProduct = async (id: number) => {
+    await deleteProduct(id)
+
+    await fetchData()
+  }
+
   const handleSubmit = async (product: Product) => {
     await createProduct(product)
     await fetchData()
@@ -77,61 +84,17 @@ const InterfaceProdutos = () => {
           </div>
           <div id={styleProdutos["content-cards"]}>
             {searchInput.length > 0 ? (
-              filteredProducts.map((product, index) => (
-                <div className={styleProdutos["card-produtos"]} key={index}>
-                  <div className={styleProdutos["section1-card"]}>
-                    <span>
-                      <p className={styleProdutos['nome']}>Nome</p>
-                      <p>{product.produto}</p>
-                    </span>
-                    <span>
-                      <p className={styleProdutos['marca']}>Tipo</p>
-                      <p>{product.tipo}</p>
-                    </span>
-                  </div>
-                  <div className={styleProdutos["section2-card"]}>
-                    <div className={styleProdutos["informations"]}>
-                      <span><p>Unidades</p><p>{product.qtd} </p></span>
-                      <span><p>P / Custo</p><p>-</p></span>
-                      <span><p>P / Venda</p><p>-</p></span>
-                      <span><p>Vencimento</p><p>{product.data}</p></span>
-                    </div>
-                    <div className={styleProdutos["control-icons"]}>
-                      <div className={styleProdutos["icons"]}>
-                        <AiFillEdit />
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              filteredProducts.map((product) => (
+
+                <ProductCard data= { product } onDelete={switchOffProduct}/>
+                
               ))
             ):(
               items.length > 0 ? (
-                items.map((product, index) => (
-                              <div className={styleProdutos["card-produtos"]} key={index}>
-                                <div className={styleProdutos["section1-card"]}>
-                                  <span>
-                                    <p className={styleProdutos['nome']}>Nome</p>
-                                    <p>{product.produto}</p>
-                                  </span>
-                                  <span>
-                                    <p className={styleProdutos['marca']}>Tipo</p>
-                                    <p>{product.tipo}</p>
-                                  </span>
-                                </div>
-                                <div className={styleProdutos["section2-card"]}>
-                                  <div className={styleProdutos["informations"]}>
-                                    <span><p>Unidades</p><p>{product.qtd} </p></span>
-                                    <span><p>P / Custo</p><p>-</p></span>
-                                    <span><p>P / Venda</p><p>-</p></span>
-                                    <span><p>Vencimento</p><p>{product.data}</p></span>
-                                  </div>
-                                  <div className={styleProdutos["control-icons"]}>
-                                    <div className={styleProdutos["icons"]}>
-                                      <AiFillEdit />
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
+                items.map((product) => (
+
+                  <ProductCard data= { product } onDelete={switchOffProduct}/>
+                  
                 ))
               ):(
                 <div id={styleProdutos['No-Data']}>

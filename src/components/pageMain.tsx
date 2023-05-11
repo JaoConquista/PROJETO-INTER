@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { MdAccountCircle } from "react-icons/md";
+import { FiUser } from "react-icons/fi";
 import style from '../ModuleCss/Interface.module.css'
 import SideBar from './StructurePage/sideBar';
 import { getAccount } from '../services/AccountService';
@@ -37,7 +37,7 @@ const Interface = () => {
         <div className={style['account']}>
           {userName && userName.map((user, index) => (
             <p key={index}>Bem vindo, {user.nome}</p>
-          ))} <MdAccountCircle />
+          ))} <FiUser />
         </div>
         <div id={style["interface"]}>
           <h1>Principal</h1>

@@ -57,7 +57,7 @@
     margin-bottom: 10px;
 }
 
-#add-btn, #cancel-btn, #check-btn{
+#add-btn, #delete-btn, #cancel-btn, #check-btn{
 
     margin-left: 10px;
     border: none;
@@ -76,14 +76,16 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding-left: 6px;
 }
 
-  #search-btn:hover ,#add-btn:hover, #cancel-btn:hover, #check-btn:hover{
+#add-btn:hover, #cancel-btn:hover, #delete-btn:hover, #check-btn:hover{
     transition: 0.5s;
     background-color: #4b4646;
     color: #fff;
     cursor: pointer;
 }
+
 span{
     margin: 10px 10px 10px 20px;
 }

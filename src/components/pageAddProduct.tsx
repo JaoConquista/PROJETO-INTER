@@ -13,6 +13,7 @@ interface AddProductProps {
 const AddProduct: React.FC<AddProductProps> = ({ onSubmit, onClose }) => {
 
     const [product, setProduct] = useState<Product>({
+        id: 0,
         produto: '',
         data: '',
         tipo: '',
@@ -53,7 +54,7 @@ const AddProduct: React.FC<AddProductProps> = ({ onSubmit, onClose }) => {
                             <input
                                 type="text"
                                 name='tipo'
-                                required
+                                
                                 value={product.tipo}
                                 placeholder='Digite o tipo do produto'
                                 onChange={handleInputChange}
@@ -64,7 +65,7 @@ const AddProduct: React.FC<AddProductProps> = ({ onSubmit, onClose }) => {
                             <input
                                 type="number"
                                 name='qtd'
-                                required
+                                
                                 value={product.qtd}
                                 placeholder='Digite a quantidade do produto'
                                 onChange={handleInputChange}
@@ -75,7 +76,7 @@ const AddProduct: React.FC<AddProductProps> = ({ onSubmit, onClose }) => {
                             <input
                                 type="date"
                                 name='data'
-                                required
+                                
                                 value={product.data}
                                 onChange={handleInputChange}
                             />
@@ -84,13 +85,13 @@ const AddProduct: React.FC<AddProductProps> = ({ onSubmit, onClose }) => {
                             Preço de Custo :
                             <input
                                 type="text"
-                                required />
+                                 />
                         </label>
                         <label>
                             Preço de Venda :
                             <input
                                 type="text"
-                                required />
+                                 />
                         </label>
                     </div>
                     <div className={stylesProdutos["control-btns"]}>

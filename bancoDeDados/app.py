@@ -129,13 +129,13 @@ def get_cadas_produto() :
 
 
 #deletar
-@app.route("/delete/<int:id>")
+@app.route("/cadas_produto/delete/<int:id>", methods=["DELETE"])
 def delete(id):
-    consulta_cli = cadastrar_clientes.query.get(id)
-    db.session.delete(consulta_cli)
-    db.session.commit
-    return redirect(url_for('cadas_clientes'))
+    consulta_produto = cadastro_produtos.query.get(id)
+    db.session.delete(consulta_produto)
+    db.session.commit()
 
+    return ' ', 204
 
 if __name__ == "__main__":
     app.run(debug=True)
