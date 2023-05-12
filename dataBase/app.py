@@ -127,6 +127,22 @@ def get_cadas_produto() :
             })
         return jsonify(produtos)
 
+#editar
+@app.route("/cadas_produto/<int:id>", methods=["PUT"])
+def editar_produto(id):
+    produto = cadastro_produtos.query.get(id)
+
+    if not produto:
+        return jsonify({"erro": "Produto não encontrado"}), 404
+
+    produto.produto = request.json.get("produto", produto.produto)
+    produto.quantidade_entrada = request.json.get("qtd", produto.quantidade_entrada)
+    produto.tipo_vinho = request.json.get("tipo", produto.tipo_vinho)
+    produto.data_validade = request.json.get("data", produto.data_validade)
+
+    db.session.commit()
+
+    return jsonify({"mensagem": "Produto atualizado com sucesso!"})
 
 #deletar
 @app.route("/cadas_produto/delete/<int:id>", methods=["DELETE"])

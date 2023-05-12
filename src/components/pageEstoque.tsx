@@ -1,17 +1,35 @@
-import React from 'react'
+import {useEffect, useState} from 'react'
+import { getProducts } from '../services/ProductService';
 
-import { Link } from 'react-router-dom'
+import SideBar from './pages/sideBar';
 
-import SideBar from './StructurePage/sideBar';
-
-import { AiOutlineSearch } from "react-icons/ai";
 //CSS
 import styles from '../ModuleCss/Interface.module.css'
 import styleEstoque from '../ModuleCss/estoque.module.css'
 
-const InterfaceEstoque = () => (
+
+ 
+const InterfaceEstoque = () => {
   //Todo: Retornar quantidade de tipos de produtos e total investido em produtos
-  <div className={styles['main']}>
+
+  const [dataLength, setDataLength] = useState(0)
+
+  const fetchDataLength = async () => {
+      const data = await getProducts()
+
+      setDataLength(data.length)
+  }
+
+  useEffect(() => {
+
+    fetchDataLength()
+
+  }, [])
+
+  
+  return (
+
+    <div className={styles['main']}>
     <div className="section1">
 
       <SideBar />
@@ -22,13 +40,12 @@ const InterfaceEstoque = () => (
         <h1>Estoque</h1>
         <div id={styleEstoque['estoque']}>
           <h3>Produtos no seu estoque </h3>
-          <h2>0</h2>
+          <h2>{dataLength}</h2>
         </div>
       </div>
     </div>
-
-
   </div>
-)
+  )
+}
 
 export default InterfaceEstoque

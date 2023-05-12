@@ -57,7 +57,7 @@
     margin-bottom: 10px;
 }
 
-#add-btn, #delete-btn, #cancel-btn, #check-btn{
+#add-btn, #delete-btn,#edit-btn, #cancel-btn, #check-btn{
 
     margin-left: 10px;
     border: none;
@@ -79,7 +79,7 @@
     padding-left: 6px;
 }
 
-#add-btn:hover, #cancel-btn:hover, #delete-btn:hover, #check-btn:hover{
+#add-btn:hover,#edit-btn:hover , #cancel-btn:hover, #delete-btn:hover, #check-btn:hover{
     transition: 0.5s;
     background-color: #4b4646;
     color: #fff;

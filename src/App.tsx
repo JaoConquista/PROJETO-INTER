@@ -20,7 +20,7 @@ function App() {
 
       <BrowserRouter>
         <Routes>
-          <Route path='/create-account' element={<FormCreateAccount/>}/>
+          <Route path='/' element={<FormCreateAccount/>}/>
           <Route path='/login' element={<FormLogIn/>}/>
           <Route path='/principal' element={<Interface/>}/>
           <Route path='/produtos' element={<InterfaceProdutos/>}/> 

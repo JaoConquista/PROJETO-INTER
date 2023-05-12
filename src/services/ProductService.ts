@@ -34,10 +34,22 @@ export async function deleteProduct(productId: number) {
         const response = await axios.delete(`${urlDelete}/${productId}`)
 
         return response
-        
+
 
     } catch (error) {
         errorNotify()
         console.log('ERRO no delete')
     }
+}
+
+export function editProduct(product: Product, productId: number): Promise<any> {
+    
+    let editUrl = `${urlProdutos}/${productId}`
+
+        return axios.put(editUrl, {
+            produto: product.produto,
+            tipo: product.tipo,
+            data: product.data,
+            qtd: product.qtd
+        })
 }

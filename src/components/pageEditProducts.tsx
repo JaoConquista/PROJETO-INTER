@@ -1,16 +1,21 @@
 import React, { useState } from 'react';
+
 import styleInterface from '../ModuleCss/Interface.module.css';
 import stylesProdutos from '../ModuleCss/InterfaceProdutos.module.css';
+
 import { Product } from '../interfaces/Products';
+import { editProduct } from '../services/ProductService';
 import { AiFillCheckCircle } from "react-icons/ai";
 import { GiCancel } from "react-icons/gi";
+import { errorNotify } from '../utils/toast';
 
 
-interface AddProductProps {
-    onSubmit: (product: Product) => void
+interface EditProductProp {
+    onEdit: (product: Product, id: number) => void
+    productId: number
     onClose: () => void
 }
-const AddProduct: React.FC<AddProductProps> = ({ onSubmit, onClose }) => {
+const EditProduct: React.FC<EditProductProp> = ({ productId, onEdit, onClose }) => {
 
     const [product, setProduct] = useState<Product>({
         id: 0,
@@ -28,15 +33,19 @@ const AddProduct: React.FC<AddProductProps> = ({ onSubmit, onClose }) => {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
 
-        onSubmit(product)
+        onEdit(product, productId)
+
+        onClose()
+        
     }
+    
+    console.log(productId)
     return (
         <div id={styleInterface['add-products']}>
             <div className={stylesProdutos['content']}>
-                <h1>Adicione seus produtos !</h1>
+                <h1>Edite o seu produto !</h1>
                 <form
-                    onSubmit={handleSubmit}
-                >
+                    onSubmit={handleSubmit}>
                     <div id={stylesProdutos["products"]}>
                         <label>
                             Nome :
@@ -54,23 +63,11 @@ const AddProduct: React.FC<AddProductProps> = ({ onSubmit, onClose }) => {
                             <input
                                 type="text"
                                 name='tipo'
+                                
                                 value={product.tipo}
                                 placeholder='Digite o tipo do produto'
                                 onChange={handleInputChange}
                             />
-                            {/* <FormControl fullWidth>
-                                <InputLabel id="demo-simple-select-label">Age</InputLabel>
-                                <Select
-                                    labelId="demo-simple-select-label"
-                                    id="demo-simple-select"
-                                    value= {product.tipo}
-                                    label="Age"
-                                    onChange={handleInputChange}>
-                                    <MenuItem value={product.tipo}>Ten</MenuItem>
-                                    <MenuItem value={product.tipo}>Twenty</MenuItem>
-                                    <MenuItem value={product.tipo}>Thirty</MenuItem>
-                                </Select>
-                            </FormControl> */}
                         </label>
                         <label>
                             Quantidade :
@@ -117,4 +114,4 @@ const AddProduct: React.FC<AddProductProps> = ({ onSubmit, onClose }) => {
     )
 }
 
-export default AddProduct;
+export default EditProduct;
