@@ -7,7 +7,7 @@ import { Product } from '../interfaces/Products'
 
 import { errorNotify, successNotify } from '../utils/toast'
 import { BsPlusLg } from 'react-icons/bs'
-import { GiTerror } from 'react-icons/gi'
+import { TfiPackage } from 'react-icons/tfi'
 
 import styles from '../ModuleCss/Interface.module.css'
 import styleProdutos from '../ModuleCss/InterfaceProdutos.module.css'
@@ -31,6 +31,7 @@ const InterfaceProdutos = () => {
 
   const [idProduct, setIdProduct] = useState(0)
 
+  //Buscar produtos 
   const filteredProducts = searchInput.length > 0 ?
     items.filter(items => items.produto.includes(searchInput))
     : []
@@ -68,6 +69,7 @@ const InterfaceProdutos = () => {
   }
 
   const handleEditProduct = async (product: Product, id: number) => {
+    //Todo: Estilo dos cards devem ser menor, mais cards devem aparecer na ViewPort
 
     try {
 
@@ -136,7 +138,7 @@ const InterfaceProdutos = () => {
                 <div id={styleProdutos["No-Data"]}>
                   <p>Que tal adicionar algo ?</p>
                   <div id={styleProdutos["icon-no-found"]}>
-                    <GiTerror />
+                    <TfiPackage />
                   </div>
                 </div>
               )}
@@ -145,7 +147,7 @@ const InterfaceProdutos = () => {
         </div>
       ) : null}
 
-      {/**Trocar o nome de add */}
+      {/**Trocar o nome e add */}
       {showAddForm &&
         <div id={styleProdutos["Add-Products"]}>
           <AddProduct onClose={() => setShowAddForm(false)} onSubmit={handleSubmit} />

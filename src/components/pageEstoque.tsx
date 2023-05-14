@@ -10,7 +10,7 @@ import styleEstoque from '../ModuleCss/estoque.module.css'
 
  
 const InterfaceEstoque = () => {
-  //Todo: Retornar quantidade de tipos de produtos e total investido em produtos
+  //Todo: Alerta de estoque baixo e vencimento próximo !
 
   const [dataLength, setDataLength] = useState(0)
 

@@ -5,10 +5,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    background-color: #fff;
 }
 
 form{
-    border: 1px solid #115bda;
+   
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -16,20 +18,33 @@ form{
     margin: 0 auto;
     width: 20em;
     padding: 30px;
-    border-radius: 10px;
 
+    border-radius: 10px;
+    background-color: #FFE6C7;
+    border: 1px solid #FF6000;
+}
+
+.create-account h2, .login-account h2{
+    color: #FF6000;
+}
+
+.create-account p, .login-account p{
+    color: #000;
 }
 
 label{
     padding: 20px;
     padding: 10px;
     font-weight: bolder;
+    color: #FF6000;
 }
 
 input{
     border: none;
-    border-bottom: 1px solid #000;
-    padding-left: 10px;
+    border-radius: 5px;
+    height: 20px;
+
+    margin-left: 10px;
     font-weight: bold ;
 }
 
@@ -41,24 +56,30 @@ input:focus{
 .form-btn{
     text-align: center;
     margin-left: 10px;
+    margin-top: 10px;
     font-size: 15px;
-    font-weight: lighter;
-    border: none;
-    background-color: #ccc;
-    color: #000;
-    height: 2em;
+
+    font-weight: bolder;
+    border: 1px solid #FF6000;
+    background-color: #FF6000;
+    color: #ffff;
+
+    transition: 0.5s;
+    height: 2.5em;
+    width: 8em;
     border-radius: 10px;
 }
 
 .form-btn:hover{
     transition: 0.5s;
-    background-color: #4b4646;
-    color: #fff;
+    background-color: #FFE6C7;
+    border: 1px solid #FF6000;
+    color: #FF6000;
 }
 
-a{
+.create-account a , .login-account a{
     text-decoration: none;
-    color: #115bda;
+    color: #FF6000;
 }
 
 

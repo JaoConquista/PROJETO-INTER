@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 import { FiUser } from "react-icons/fi";
 import style from '../ModuleCss/Interface.module.css'
 import SideBar from './pages/sideBar';
@@ -37,13 +36,25 @@ const Interface = () => {
         <div className={style['account']}>
           {userName && userName.map((user, index) => (
             <p key={index}>Bem vindo, {user.nome}</p>
-          ))} <FiUser />
+          ))} 
+          <FiUser />
         </div>
-        <div id={style["interface"]}>
-          <h1>Principal</h1>
-          <div>
-            <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum dignissimos ea quod commodi a. Veniam, voluptatum. Maiores sit, eos laboriosam, quidem corporis excepturi eius aspernatur ut dolorem, accusantium architecto rerum?</h3>
-        </div>
+        <div id={style["interface-main"]}>
+          <h1>Tenha total controle dos seus produtos ! </h1>
+          <div id={style["cards-main"]}>
+           <div className={style["card-main"]}>
+            <h3>Vendas</h3>
+            <p>Veja o número das sua vendas !</p>
+           </div>
+           <div className={style["card-main"]}>
+            <h3>Produtos</h3>
+            <p>Adicione, edite ou delete quantos produtos quiser !</p>
+           </div>
+           <div className={style["card-main"]}>
+            <h3>Estoque </h3>
+            <p>Veja quantos produtos você possui !</p>
+           </div>
+          </div>
         </div>
       </div>
 

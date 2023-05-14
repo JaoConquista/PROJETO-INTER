@@ -31,7 +31,7 @@ const FormLogIn = () => {
         </label>
         <button className={styles['form-btn']} type='submit'>Entrar</button>
     </form>
-    <p>Não possui uma conta ? <Link to='/create-account'>Crie aqui !</Link></p>
+    <p>Não possui uma conta ? <Link to='/'>Crie aqui !</Link></p>
     </div>
   )
 }

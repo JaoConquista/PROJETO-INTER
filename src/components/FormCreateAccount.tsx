@@ -58,6 +58,7 @@ const FormCreateAccount = () => {
 
 
     return (
+      //Todo: Trocar endereço por email.
       <div className={styles['create-account']}>
         <h2>Crie sua conta</h2>
         <form
@@ -106,8 +107,9 @@ const FormCreateAccount = () => {
           {loading && <button className={styles['form-btn']} disabled type='submit'>Aguarde ...</button>}
           {!loading && <button className={styles['form-btn']} type='submit'>Criar conta</button>}
           
+         
         </form>
-        <p>Já possui uma conta ? <Link to='/login'>Entre aqui</Link></p>
+         <p>Já possui uma conta ? <Link to='/login'>Entre aqui</Link></p>
       </div>
     )
 
