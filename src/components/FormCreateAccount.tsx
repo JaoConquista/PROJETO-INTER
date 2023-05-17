@@ -96,9 +96,9 @@ const FormCreateAccount = () => {
               onChange={handleInputChange} />
           </label>
           <label>
-            Endereço:
+            Email: 
             <input
-              type="text"
+              type="email"
               name="endereco"
               required
               value={formValues.endereco}
