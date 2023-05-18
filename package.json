@@ -1,8 +1,9 @@
 {
-  "name": "projeto-inter",
+  "name": "Smart-Products",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "author": {"url": "https://github.com/JaoConquista","url": "https://github.com/Maike2961"},
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
